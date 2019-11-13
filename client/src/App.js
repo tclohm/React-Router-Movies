@@ -14,6 +14,7 @@ const App = () => {
 
   const addToSavedList = movie => {
     setSavedList( [...savedList, movie] );
+    savedList.push(movie);
   };
 
   return (
@@ -21,7 +22,7 @@ const App = () => {
       <SavedList list={savedList} />
       <Route exact path="/" component={MovieList} />
       <Route path="/movies/:id" render={ (props) => {
-        return (<Movie {...props} />) }} />
+        return (<Movie {...props} addToSavedList={addToSavedList}/>) }} />
     </div>
   );
 };
